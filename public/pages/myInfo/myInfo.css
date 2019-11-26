@@ -1,0 +1,95 @@
+body,html {
+    padding: 0;
+    margin: 0;
+    background: rgba(244,244,244,1);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 导航 */
+.nav {
+    background: white;
+    height: 64px;
+    position: relative;
+}
+
+.nav .navTitle {
+    height: 64px;
+    line-height: 64px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.nav .leftView {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    height: 64px;
+}
+
+.nav .rightView {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    height: 64px;
+}
+
+.rightView button {
+    width: 100px;
+    height: 40px;
+    margin: 12px 15px;
+    border-radius: 6px;
+    border: 1px solid #EDEDED;
+    font-size: 20px;
+    padding: 0;
+}
+
+/* 列表 */
+.myTable {
+    border-radius: 6px;
+    background: white;
+    margin: 10px 15px 0;
+}
+
+.myCell {
+    padding: 0 15px;
+    height: 44px;
+    border-bottom: 1px solid #EDEDED;
+    font-size: 18px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+.myCell:hover {
+    background: #EDEDED;
+}
+
+.myCell .left {
+    height: 44px;
+    display: flex;
+}
+
+.myCell .cellTitle {
+    color: #1A1A1C;
+    height: 44px;
+    line-height: 44px;
+}
+
+.myCell .icon {
+    width: 30px;
+    height: 30px;
+    margin: 7px 15px 7px 0;
+}
+
+.myCell .rightArrow {
+    width: 40px;
+    height: 40px;
+    margin: 2px 0;
+}
+
+

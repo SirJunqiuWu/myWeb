@@ -2,9 +2,146 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no" >
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>element-datepicker</title>
+
+    <!-- px转化为rem -->
+    <script>
+      (function(win) {
+        var tid;
+
+        function refreshRem() {
+          let designSize = 1920; // 设计图尺寸
+          let html = document.documentElement;
+          let wW = html.clientWidth;// 窗口宽度
+          let rem = wW * 100 / designSize;
+          document.documentElement.style.fontSize = rem + 'px';
+        }
+
+        win.addEventListener('resize', function() {
+          clearTimeout(tid);
+          tid = setTimeout(refreshRem, 300);
+        }, false);
+        win.addEventListener('pageshow', function(e) {
+          if (e.persisted) {
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+          }
+        }, false);
+
+        refreshRem();
+
+      })(window);
+    </script>
+
+
+    <!-- import Vue before Element 引入vue -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <!-- 引入element-ui -->
+    <!--<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">-->
+
+    <!-- import JavaScript 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+    <style>
+        .el-range-editor.is-active, .el-range-editor.is-active:hover {
+            border-color: red;
+        }
+    </style>
+
+    <link rel="stylesheet" href="taskHistory.css">
 </head>
 <body>
-$END$
+
+<div id="app">
+    <!-- 导航 -->
+    <div class="nav" id="nav">
+        <div class="navLeft" @click="navBackClick">
+            <div class="backIcon">
+                <img src="../../img/left.png" alt="">
+            </div>
+            <div class="navTitle">任务记录</div>
+        </div>
+        <div class="navRight">
+            <img class="userAvatar" src="../../img/default-person.png" alt="../img/default-person.png" onclick="navRightClick()">
+            <img class="navArrow" id="navArrow" src="../../img/down-arrow.png" alt="" onclick="navRightClick()">
+            <ul class="operate" id="operate">
+                <li class="operateLi">v2.1.3</li>
+                <li id="100" onclick="logOut()">退出登录</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 时间区 -->
+    <div class="timeContent" id="timeContent">
+        <div class="timeInfo">
+            <!--<span class="demonstration">默认</span>-->
+            <el-date-picker
+                    v-model="date"
+                    format = "yyyy-MM-dd"
+                    type="daterange"
+                    range-separator="至"
+                    start-placeholder="开始日期"
+                    end-placeholder="结束日期"
+                    :picker-options="pickerOptions"
+                    size = "large"
+                    @change="change"
+                    @focus="focus"
+                    @doneSelectTime="doneSelectTime"
+            >
+            </el-date-picker>
+        </div>
+        <div class="totalDes" id="totalDes">共计0件货品；0个任务（0个异常任务）</div>
+    </div>
+
+    <!-- 列表区 -->
+    <div class="list" id="list">
+        <template v-if="list.length==0">
+            <div class="no-data" v-if="list.length==0">
+                <img class="noDataIcon" src="../../img/no-data.png" />
+                <div class="noDataText">暂无数据</div>
+            </div>
+        </template>
+        <template v-else>
+            <!-- 列表循环方式赋值 -->
+            <div class="one-content" v-for="(temp, index) in list" :key="index">
+                <div class="taskTime">
+                    {{temp.time}}
+                    <span class="taskStatus"> &nbsp;&nbsp;{{temp.statusDes}}</span>
+                </div>
+                <div class="locationDes">
+                    <div class="startInfo">
+                        <div class="startPointTitle">起点:</div>
+                        <div class="startPoint">{{temp.startPoint}}</div>
+                    </div>
+                    <div class="endInfo">
+                        <div class="endPointTitle">终点:</div>
+                        <div class="endPoint">{{temp.endPoint}}</div>
+                    </div>
+                </div>
+                <div class="goodsNum">数量:</div>
+                <div class="goodsNumDetail">{{temp.num}}</div>
+                <div class="goodsNameInfo">
+                    <div class="goodsNameTitle">货品:</div>
+                    <div class="goodsName" id="goods-name">{{temp.goodsName}}</div>
+                </div>
+            </div>
+        </template>
+
+    </div>
+
+</div>
+
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<!-- 加载当前界面的js文件 -->
+<script src="../../lib/template.js"></script>
+<script src="../../../src/utils/utils.js"></script>
+<script src="taskHistory.js"></script>
 </body>
 </html>

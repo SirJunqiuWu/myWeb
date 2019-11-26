@@ -22,10 +22,15 @@ var vue = new Vue({
     },
     change() {
       console.log("选择结束", vue.date);
+      this.$emit('doneSelectTime', vue.date);
     },
-    doneSelectTime() {
-      console.log("为组件自定义方法");
-    }
+    doneSelectTime(e) {
+      console.log("为组件自定义方法", e);
+    },
+    navBackClick:function() {
+      console.log('返回上一级');
+      window.history.back(-1);
+    },
   },
   data: function() {
     return {
@@ -41,7 +46,7 @@ var vue = new Vue({
       list: []
     };
   },
-  created() {
+  created:function() {
     getTestDataReq();
   }
 });
@@ -93,11 +98,26 @@ function getTestDataReq() {
     datas.push(item);
   }
 
+
+  let title = getUrlParma('name');
+  console.log('标题:', title);
+
   // 赋值
   setTimeout(function() {
     vue.list = datas;
-  });
+  }, 200);
 }
+
+
+function getUrlParma(key) {
+  let info = window.location.search.substr(1);
+  info = decodeURI(info);
+  console.log('上一界面传递过来的值:', info);
+  let result = getTargetParamWithKeyAndObj(key, info);
+  console.log('result:', result);
+  return result;
+};
+
 
 // 获取当前时间显示 格式:yyyy-MM-dd HH:mm:ss
 function getShowTimeByTimeStampAndFormat(timestamp, format) {
