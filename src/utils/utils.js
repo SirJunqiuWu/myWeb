@@ -2,10 +2,18 @@
 /*********************************************************************************
  * 作者：吴俊秋
  * 该文件是项目的工具类文件，常见方法，方便快速获取想要的结果 比如日期、时间戳、url参数的获取
- * 也可以做安全处理
+ * 也可以做安全处理：数组安全取值 字符串安全判断  正则匹配等
 *********************************************************************************/
 
-// 根据url后拼接的字符串信息获取url拼接的所有键值对
+const testApi = 'testaaa';
+
+// 获取页面跳转时链接传值的信息字符串
+function getUrlAllParmInfo() {
+    let result = window.location.search.substr(1);
+    result = decodeURI(result);
+    return result;
+}
+
 function getParamWithObj(obj) {
   let result = null;
   let paramDic = {};
@@ -23,9 +31,11 @@ function getParamWithObj(obj) {
     for (let i = 0; i < result.length; i += 1) {
       let temp = result[i];
       temp = temp.split('=');
-      let key= temp[0];
-      let value = temp[1];
-      paramDic[key] = value;
+      if (temp && temp.length >= 2) {
+          let key= temp[0];
+          let value = temp[1];
+          paramDic[key] = value;
+      }
     }
   }
   return paramDic;

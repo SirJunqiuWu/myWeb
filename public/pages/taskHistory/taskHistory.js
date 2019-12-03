@@ -14,7 +14,7 @@ function today() {
 }
 
 //new 一个Vue对象
-var vue = new Vue({
+let vue = new Vue({
   el: "#app",
   methods: {
     focus() {
@@ -22,10 +22,6 @@ var vue = new Vue({
     },
     change() {
       console.log("选择结束", vue.date);
-      this.$emit('doneSelectTime', vue.date);
-    },
-    doneSelectTime(e) {
-      console.log("为组件自定义方法", e);
     },
     navBackClick:function() {
       console.log('返回上一级');
@@ -60,6 +56,7 @@ function domReady() {
   };
 }
 $(document).ready(domReady);
+
 
 function navRightClick() {
   isShowVersionInfo = !isShowVersionInfo;

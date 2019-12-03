@@ -4,22 +4,36 @@ let data = {
   message:"消息1",
   dataArray:[],
   loading:true,
+  showAlert:false,
+  cellDic:{},
 };
-data.dataArray = uploadDataReq();
+// data.dataArray = uploadDataReq();
 
 function uploadDataReq() {
-  let datas = data.dataArray;
-  let titleArr = ['邀请得杯', '常见问题', '客户服务', '设备申请', '关于我们', '系统设置'];
-  for (let i = 0; i < 6; i += 1) {
-    let temp = {};
-    let nameIndex = i + 1;
-    temp.title = titleArr[i];
-    temp.image = '../../img/my-info-img/p' + nameIndex + '.png';
-    temp.name = '吴俊秋';
-    datas.push(temp);
-  }
-  datas.dataArray = datas;
-  return datas;
+    let param = {};
+    getDataReq({
+        url: getUserInfoReqURL,
+        param: param,
+        successd:function (res) {
+            console.log('请求成功:', res);
+            data.dataArray = res.data.data;
+        },
+        failed:function (msg) {
+            console.log('请求失败:', msg);
+        }});
+
+  // let datas = data.dataArray;
+  // let titleArr = ['邀请得杯', '常见问题', '客户服务', '设备申请', '关于我们', '系统设置'];
+  // for (let i = 0; i < 6; i += 1) {
+  //   let temp = {};
+  //   let nameIndex = i + 1;
+  //   temp.title = titleArr[i];
+  //   temp.image = '../../img/my-info-img/p' + nameIndex + '.png';
+  //   temp.name = '吴俊秋';
+  //   datas.push(temp);
+  // }
+  // datas.dataArray = datas;
+  // return datas;
 };
 
 // 自定义cell
@@ -56,16 +70,26 @@ let app = new Vue({
     console.log('在实例创建完成后被立即调用，挂载阶段还没开始，$el属性目前不可见');
     setTimeout(function() {
       data.loading = false;
+      uploadDataReq();
     }, 2000);
   },
 
   methods:{
+    cancelBtnPressed:function () {
+          console.log('取消');
+          data.showAlert = false;
+     },
+      okBtnPressed:function () {
+          console.log('确定');
+          window.location.href = '../taskHistory/taskHistory.html?title=' + data.cellDic.title + '&name=' + data.cellDic.name;
+      },
     getMoreData:function() {
       uploadDataReq();
     },
     cellClicked:function(e, idx) {
       console.log('当前行点击事件:', e, idx);
-      window.location.href = '../taskHistory/taskHistory.html?title=' + e.title + '&name=' + e.name;
+      data.showAlert = true;
+      data.cellDic = e;
     },
   },
 });

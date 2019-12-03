@@ -10,6 +10,36 @@
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <script src="../../components/vue-title-text-cell.js"></script>
     <link rel="stylesheet" href="myInfo.css">
+
+    <!-- px转化为rem -->
+    <script>
+        (function(win) {
+            let tid;
+
+            function refreshRem() {
+                let designSize = 1920; // 设计图尺寸
+                let html = document.documentElement;
+                let wW = html.clientWidth;// 窗口宽度
+                let rem = wW * 100 / designSize;
+                document.documentElement.style.fontSize = rem + 'px';
+            }
+
+            win.addEventListener('resize', function() {
+                clearTimeout(tid);
+                tid = setTimeout(refreshRem, 300);
+            }, false);
+            win.addEventListener('pageshow', function(e) {
+                if (e.persisted) {
+                    clearTimeout(tid);
+                    tid = setTimeout(refreshRem, 300);
+                }
+            }, false);
+
+            refreshRem();
+
+        })(window);
+    </script>
+
 </head>
 <body>
   <div id="app">
@@ -21,7 +51,7 @@
           </div>
       </div>
       <div>
-          <ul class="myTable" v-loading="loading" element-loading-text="拼命加载中" element-loading-spinner="el-icon-loading" element-loading-background="rgba(0, 0, 0, 0.8)">
+          <ul class="myTable" v-loading="loading" element-loading-text="加载中" element-loading-spinner="el-icon-loading" element-loading-background="rgba(0, 0, 0, 0.8)">
 <!--              <li class="myCell" v-for="(temp, index) in dataArray" :key="index" @click="cellClicked(temp, idx)">-->
 <!--                  <div class="left">-->
 <!--                      <img class="icon" :src="temp.image" alt="">-->
@@ -35,8 +65,26 @@
               <title-text-cell @cell-clicked="cellClicked" v-for="(temp, index) in dataArray" :temp="temp" :idx="index" :key="index"></title-text-cell>
           </ul>
       </div>
+
+      <!-- 提示弹框 -->
+      <div class="alert-bk" :class="{'alert-bk-show':showAlert}">
+          <div class="content-box">
+              <div class="title">是否确认取消任务</div>
+              <div class="function-btn">
+                  <div class="btn cancel-btn" @click="cancelBtnPressed">取消</div>
+                  <div class="btn ok-btn" @click="okBtnPressed">确定</div>
+              </div>
+          </div>
+      </div>
+
   </div>
 
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script>
+      // 引入constants.js文件
+      document.write("<s"+"cript  src='../../../src/common/constants.js?a=" + new Date().valueOf() + "'></scr"+"ipt>")
+      document.write("<s"+"cript  src='../../../src/utils/api.js?a=" + new Date().valueOf() + "'></scr"+"ipt>")
+  </script>
   <script src="myInfo.js"></script>
 </body>
 </html>
