@@ -2,7 +2,7 @@
 let data = {
   navTitle:"我的",
   dataArray:[],
-  loading:true,
+  loading:false,
   showAlert:false,
   cellDic:{},
 
@@ -25,15 +25,12 @@ function uploadDataReq() {
       param: param,
       successd:function (res) {
         console.log('请求成功:', res);
-        data.image = '../../img/success.png';
-        data.text = '加载成功';
         data.dataArray = res.data.data;
-        setTimeout(function () {
-          data.showHud = false;
-        }, 2000)
+        showHud('请求成功', '../../img/success.png');
       },
       failed:function (msg) {
         console.log('请求失败:', msg);
+        hideHud();
       }
     });
 };
@@ -50,10 +47,11 @@ let app = new Vue({
 
   created:function() {
     console.log('在实例创建完成后被立即调用，挂载阶段还没开始，$el属性目前不可见');
+    showHud('加载中', '../../img/loading.svg', 3);
     setTimeout(function() {
       data.loading = false;
       uploadDataReq();
-    }, 2000);
+    }, 500);
   },
 
   methods:{

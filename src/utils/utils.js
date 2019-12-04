@@ -4,8 +4,8 @@
  * 该文件是项目的工具类文件，常见方法，方便快速获取想要的结果 比如日期、时间戳、url参数的获取
  * 也可以做安全处理：数组安全取值 字符串安全判断  正则匹配等
 *********************************************************************************/
-
-const testApi = 'testaaa';
+  // 当前显示的hubBk，只能显示一个,showHud时先移除hud
+let hudBk = null;
 
 // 获取页面跳转时链接传值的信息字符串
 function getUrlAllParmInfo() {
@@ -131,4 +131,55 @@ function showToast(msg, duration, minWidth) {
       document.body.removeChild(m)
     }, d * 1000);
   }, duration * 1000);
+}
+
+
+// 页面交互toast提示
+function showHud(msg, image, duration) {
+  // 先移除
+  if (hudBk) {
+    // 移除该标签
+    document.body.removeChild(hudBk)
+    hudBk = null;
+  }
+  // 显示时长 默认为2s
+  duration = isNaN(duration) ? 2 : duration;
+
+  // 创建父div
+  let bk = document.createElement('div');
+  bk.style.cssText = "max-width:60%;width:2.02rem;height:2.02rem;color: rgb(255, 255, 255);text-align: center;border-radius: .04rem;position: fixed;top: 50%;left: 50%;margin-top: -1.01rem;margin-left: -1.01rem;transform: translate(-50%, -50%);z-index: 999999;background: rgba(0, 0, 0, 0.7);font-size: 0.25rem;";
+  document.body.appendChild(bk);
+  hudBk = bk;
+
+
+  // 图标
+  let img = document.createElement('img');
+  img.src = image;
+  img.style.cssText = 'with:0.72rem;height:0.72rem;display:block;margin:0.26rem auto';
+  bk.appendChild(img);
+
+  // 提示文本
+  let text = document.createElement('div');
+  text.style.cssText = "margin:0.26rem 0";
+  text.innerHTML = msg;
+  bk.appendChild(text);
+
+  setTimeout(function() {
+    // 定义消失的时间
+    let d = 0.5;
+    bk.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d + 's ease-in';
+    bk.style.opacity = '0';
+  }, duration * 1000);
+}
+
+
+// 隐藏hud
+function hideHud() {
+  // 移除该标签
+  if (hudBk) {
+    setTimeout(function () {
+      document.body.removeChild(hudBk)
+      hudBk = null;
+    }, 0.5 * 1000)
+  }
 }
