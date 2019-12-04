@@ -6,11 +6,11 @@
     <script src="../../lib/vue.js"></script>
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="myInfo.css">
     <!-- 引入组件库 -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <script src="../../components/vue-title-text-cell.js"></script>
-    <link rel="stylesheet" href="myInfo.css">
-
+    <script src="../../components/vue-alert-modal.js"></script>
     <!-- px转化为rem -->
     <script>
         (function(win) {
@@ -46,7 +46,7 @@
       <div class="nav">
           <div class="navTitle">{{navTitle}}</div>
           <div class="leftView"></div>
-          <div class="rightView" @click="getMoreData">
+          <div class="rightView" @click="refreshData">
               <el-button type="primary" icon="el-icon-refresh">刷新</el-button>
           </div>
       </div>
@@ -67,15 +67,17 @@
       </div>
 
       <!-- 提示弹框 -->
-      <div class="alert-bk" :class="{'alert-bk-show':showAlert}">
-          <div class="content-box">
-              <div class="title">是否确认取消任务</div>
-              <div class="function-btn">
-                  <div class="btn cancel-btn" @click="cancelBtnPressed">取消</div>
-                  <div class="btn ok-btn" @click="okBtnPressed">确定</div>
-              </div>
-          </div>
-      </div>
+      <!--<div class="alert-bk" :class="{'alert-bk-show':showAlert}">-->
+          <!--<div class="content-box">-->
+              <!--<div class="title">是否确认取消任务</div>-->
+              <!--<div class="function-btn">-->
+                  <!--<div class="btn cancel-btn" @click="cancelBtnPressed">取消</div>-->
+                  <!--<div class="btn ok-btn" @click="okBtnPressed">确定</div>-->
+              <!--</div>-->
+          <!--</div>-->
+      <!--</div>-->
+
+      <alert-modal @cancel-clicked="cancelBtnPressed" @ok-clicked="okBtnPressed" :dic="cellDic" :title="alertTitle" :left="leftTitle" :right="rightTitle" :show="showAlert"></alert-modal>
 
   </div>
 
