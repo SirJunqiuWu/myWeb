@@ -104,3 +104,31 @@ function getObjectAtIndex(idx, datas) {
   }
   return datas[idx];
 }
+
+
+// 页面交互toast提示
+function showToast(msg, duration, minWidth) {
+  // 显示时长 默认为2s
+  duration = isNaN(duration) ? 2 : duration;
+
+  // toast最小宽度 默认0.6
+  minWidth = isNaN(minWidth) ? 0.6 : minWidth;
+
+  // 创建div
+  let m = document.createElement('div');
+  m.innerHTML = msg;
+  m.style.cssText = "max-width:60%;padding:0 .14rem;height: .4rem;color: rgb(255, 255, 255);line-height: .4rem;text-align: center;border-radius: .04rem;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 999999;background: rgba(0, 0, 0,.7);font-size: .16rem;" + "min-width:" + minWidth + "rem";
+
+  document.body.appendChild(m);
+
+  setTimeout(function() {
+    // 定义消失的时间
+    let d = 0.5;
+    m.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d + 's ease-in';
+    m.style.opacity = '0';
+    setTimeout(function() {
+      // 移除该标签
+      document.body.removeChild(m)
+    }, d * 1000);
+  }, duration * 1000);
+}

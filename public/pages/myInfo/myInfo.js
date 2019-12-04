@@ -6,10 +6,16 @@ let data = {
   showAlert:false,
   cellDic:{},
 
+  // 提示框
   alertTitle:'是否确定取消任务?',
   leftTitle:'取消',
   rightTitle:'确定',
   showAlert:false,
+
+  // 加载框
+  image:'../../img/loading.svg',
+  text:'加载中...',
+  showHud:false,
 };
 
 function uploadDataReq() {
@@ -19,7 +25,12 @@ function uploadDataReq() {
       param: param,
       successd:function (res) {
         console.log('请求成功:', res);
+        data.image = '../../img/success.png';
+        data.text = '加载成功';
         data.dataArray = res.data.data;
+        setTimeout(function () {
+          data.showHud = false;
+        }, 2000)
       },
       failed:function (msg) {
         console.log('请求失败:', msg);
@@ -58,11 +69,20 @@ let app = new Vue({
     },
     cellClicked:function(e, idx) {
       console.log('当前行点击事件:', e, idx);
+      if (idx === data.dataArray.length - 1) {
+        showToast('请填写账号!', 1, 0.6);
+        return;
+      }
       data.cellDic = e;
       data.showAlert = true;
     },
     refreshData:function () {
-      uploadDataReq();
+      data.image = '../../img/failed.png';
+      data.text = '刷新失败';
+      data.showHud = true;
+      setTimeout(function () {
+        data.showHud = false;
+      }, 2000)
     }
   },
 });
@@ -72,3 +92,4 @@ let app = new Vue({
 app.$watch('dataArray', function(newValue, oldValue) {
   console.log('key值变化前后:', oldValue, newValue);
 });
+

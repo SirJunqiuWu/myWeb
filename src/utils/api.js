@@ -111,6 +111,6 @@ function mockMyInfoData() {
         temp.name = '吴俊秋';
         datas.push(temp);
     }
-    let result = {code:0, message:'', data:{data:datas}};
+    let result = {code:0, message:'success', data:{data:datas}};
     return result;
 }

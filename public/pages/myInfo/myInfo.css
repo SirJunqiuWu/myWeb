@@ -29,19 +29,25 @@ ul {
     top: 0;
     left: 0.15rem;
     height: 0.64rem;
+    background: yellow;
 }
 
 .nav .rightView {
     position: absolute;
+    height: 0.64rem;
     top: 0;
     right: 0.15rem;
-    height: 0.64rem;
+    bottom: 0;
+    background: red;
 }
 
-.rightView button {
+.el-button {
+    position: absolute;
     width: 1rem;
     height: 0.4rem;
-    margin: 0.12rem 0.15rem;
+    top: 0.12rem;
+    right: 0.15rem;
+    bottom: 0.12rem;
     border-radius: 0.06rem;
     border: 0.01rem solid #EDEDED;
     font-size: 0.2rem;
@@ -159,4 +165,54 @@ ul {
 
 .ok-btn {
     background-color: #1966FF;
+}
+
+/* 加载框 */
+.hud-bk {
+    position: fixed;
+    display: none;
+    background: black;
+    opacity: 0.6;
+    width: 2.32rem;
+    height: 2.32rem;
+    top: 50%;
+    left: 50%;
+    margin-top: -1.16rem;
+    margin-left: -1.16rem;
+    border-radius: 0.06rem;
+}
+
+.hud-bk-show {
+    display: block;
+}
+
+.hud-bk img {
+    width: 0.72rem;
+    height: 0.72rem;
+    display: block;
+    margin: 0.4rem auto;
+}
+
+.hud-bk .text {
+    text-align: center;
+    margin:0.4rem 0;
+    font-size: 0.3rem;
+    color: white;
+}
+
+/* toast提示 */
+.toast-bk {
+    position: fixed;
+    display: none;
+    background: black;
+    opacity: 0.6;
+    min-width: 0.6rem;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    top: 50%;
+    left: 50%;
+    font-size: 0.2rem;
+    text-align: center;
+    color: white;
+    border-radius: 0.06rem;
 }

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>我的</title>
+    <!-- 引入vue.js -->
     <script src="../../lib/vue.js"></script>
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
@@ -11,11 +12,12 @@
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <script src="../../components/vue-title-text-cell.js"></script>
     <script src="../../components/vue-alert-modal.js"></script>
+    <script src="../../components/vue-hud.js"></script>
+    <script src="../../components/vue-toast.js"></script>
     <!-- px转化为rem -->
     <script>
         (function(win) {
             let tid;
-
             function refreshRem() {
                 let designSize = 1920; // 设计图尺寸
                 let html = document.documentElement;
@@ -23,7 +25,6 @@
                 let rem = wW * 100 / designSize;
                 document.documentElement.style.fontSize = rem + 'px';
             }
-
             win.addEventListener('resize', function() {
                 clearTimeout(tid);
                 tid = setTimeout(refreshRem, 300);
@@ -34,9 +35,7 @@
                     tid = setTimeout(refreshRem, 300);
                 }
             }, false);
-
             refreshRem();
-
         })(window);
     </script>
 
@@ -46,38 +45,24 @@
       <div class="nav">
           <div class="navTitle">{{navTitle}}</div>
           <div class="leftView"></div>
-          <div class="rightView" @click="refreshData">
-              <el-button type="primary" icon="el-icon-refresh">刷新</el-button>
-          </div>
+          <el-button class="el-button" type="primary" icon="el-icon-refresh" @click="refreshData">刷新</el-button>
       </div>
       <div>
-          <ul class="myTable" v-loading="loading" element-loading-text="加载中" element-loading-spinner="el-icon-loading" element-loading-background="rgba(0, 0, 0, 0.8)">
-<!--              <li class="myCell" v-for="(temp, index) in dataArray" :key="index" @click="cellClicked(temp, idx)">-->
-<!--                  <div class="left">-->
-<!--                      <img class="icon" :src="temp.image" alt="">-->
-<!--                      <div class="cellTitle">{{temp.title}}</div>-->
-<!--                  </div>-->
-<!--                  <div>-->
-<!--                      <img class="rightArrow" src="../../img/my-info-img/arrow_right.png" alt="">-->
-<!--                  </div>-->
-<!--              </li>-->
+          <!-- 列表 -->
+          <ul class="myTable">
               <!-- cell 自定义组件 -->
               <title-text-cell @cell-clicked="cellClicked" v-for="(temp, index) in dataArray" :temp="temp" :idx="index" :key="index"></title-text-cell>
           </ul>
       </div>
 
-      <!-- 提示弹框 -->
-      <!--<div class="alert-bk" :class="{'alert-bk-show':showAlert}">-->
-          <!--<div class="content-box">-->
-              <!--<div class="title">是否确认取消任务</div>-->
-              <!--<div class="function-btn">-->
-                  <!--<div class="btn cancel-btn" @click="cancelBtnPressed">取消</div>-->
-                  <!--<div class="btn ok-btn" @click="okBtnPressed">确定</div>-->
-              <!--</div>-->
-          <!--</div>-->
-      <!--</div>-->
-
+      <!-- 提示框 -->
       <alert-modal @cancel-clicked="cancelBtnPressed" @ok-clicked="okBtnPressed" :dic="cellDic" :title="alertTitle" :left="leftTitle" :right="rightTitle" :show="showAlert"></alert-modal>
+
+      <!-- 加载框 -->
+      <hud :image="image" :title="text" :show="showHud" ></hud>
+
+      <!-- 文本提示toast -->
+      <div class="toast-bk">请填写账号!</div>
 
   </div>
 
@@ -86,6 +71,7 @@
       // 引入constants.js文件
       document.write("<s"+"cript  src='../../../src/common/constants.js?a=" + new Date().valueOf() + "'></scr"+"ipt>")
       document.write("<s"+"cript  src='../../../src/utils/api.js?a=" + new Date().valueOf() + "'></scr"+"ipt>")
+      document.write("<s"+"cript  src='../../../src/utils/utils.js?a=" + new Date().valueOf() + "'></scr"+"ipt>")
   </script>
   <script src="myInfo.js"></script>
 </body>
