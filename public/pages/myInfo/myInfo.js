@@ -26,7 +26,7 @@ function uploadDataReq() {
       successd:function (res) {
         console.log('请求成功:', res);
         data.dataArray = res.data.data;
-        showHud('请求成功', '../../img/success.png');
+        showHud('获取成功');
       },
       failed:function (msg) {
         console.log('请求失败:', msg);
@@ -47,7 +47,7 @@ let app = new Vue({
 
   created:function() {
     console.log('在实例创建完成后被立即调用，挂载阶段还没开始，$el属性目前不可见');
-    showHud('加载中', '../../img/loading.svg', 3);
+    showHud('加载中');
     setTimeout(function() {
       data.loading = false;
       uploadDataReq();
@@ -75,12 +75,13 @@ let app = new Vue({
       data.showAlert = true;
     },
     refreshData:function () {
-      data.image = '../../img/failed.png';
-      data.text = '刷新失败';
-      data.showHud = true;
-      setTimeout(function () {
-        data.showHud = false;
-      }, 2000)
+      // data.image = '../../img/failed.png';
+      // data.text = '刷新失败';
+      // data.showHud = true;
+      // setTimeout(function () {
+      //   data.showHud = false;
+      // }, 2000)
+      showHud('刷新失败')
     }
   },
 });

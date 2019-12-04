@@ -8,7 +8,7 @@ Vue.component('toast', {
 
     }
   },
-  template:'',
+  template:'<div class="toast-bk" :class="{\'toast-bk-show\':show}">{{text}}</div>',
   methods:{
 
   },

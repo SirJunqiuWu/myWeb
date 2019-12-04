@@ -134,8 +134,8 @@ function showToast(msg, duration, minWidth) {
 }
 
 
-// 页面交互toast提示
-function showHud(msg, image, duration) {
+// 页面交互Hud提示
+function showHud(msg, duration) {
   // 先移除
   if (hudBk) {
     // 移除该标签
@@ -144,6 +144,16 @@ function showHud(msg, image, duration) {
   }
   // 显示时长 默认为2s
   duration = isNaN(duration) ? 2 : duration;
+
+  // 图标
+  let image = '';
+  if (msg.indexOf('成功') != -1 )  {
+    image = '../../img/success.png';
+  } else if(msg.indexOf('失败') != -1) {
+    image = '../../img/failed.png';
+  } else {
+    image = '../../img/loading.svg';
+  }
 
   // 创建父div
   let bk = document.createElement('div');
