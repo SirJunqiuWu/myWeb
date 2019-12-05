@@ -37,9 +37,15 @@ function getDataReq(options = {}) {
     let reqURL = getTotalURL(url);
     if (url === 'getUserInfo') {
         console.log('获取个人信息');
-        let result = mockMyInfoData();
+        let result = mockMyInfoData('web');
         successd(result);
         return;
+    }
+    if (url === 'getUserInfoForMobile') {
+      console.log('移动端');
+      let result = mockMyInfoData('mobile');
+      successd(result);
+      return;
     }
 
     $.ajax({
@@ -100,14 +106,20 @@ function getTotalURL(url) {
 }
 
 
-function mockMyInfoData() {
+function mockMyInfoData(type) {
     let datas = []
-    let titleArr = ['邀请得杯', '常见问题', '客户服务', '设备申请', '关于我们', '系统设置'];
-    for (let i = 0; i < 6; i += 1) {
+    let titleArr = ['邀请得杯', '常见问题', '客户服务', '设备申请', '关于我们', '个人资料'];
+    for (let i = 0; i < titleArr.length; i += 1) {
         let temp = {};
         let nameIndex = i + 1;
         temp.title = titleArr[i];
-        temp.image = '../../img/my-info-img/p' + nameIndex + '.png';
+        if (type === 'web') {
+          temp.image = '../../img/my-info-img/p' + nameIndex + '.png';
+          temp.rightIcon = '../../img/my-info-img/arrow_right.png';
+        } else if (type === 'mobile') {
+          temp.image = '../../../public/img/my-info-img/p' + nameIndex + '.png';
+          temp.rightIcon = '../../../public/img/my-info-img/arrow_right.png';
+        }
         temp.name = '吴俊秋';
         datas.push(temp);
     }

@@ -97,6 +97,24 @@ function isNullStr(str) {
     return result;
 }
 
+/**
+ * 隐藏目标字符串中一段字符, 以*替换(目标字符串必须大于1)
+ * targetStr:目标字符串
+ * startIdx: 替换段的第一个字符在目标字符中的索引
+ * length: 需要替换的字符长度
+ **/
+function maskStrWithStartIdxAndLength(targetStr, startIdx, length) {
+  if (targetStr && targetStr.length == 1) {
+    return '*';
+  }
+  if (targetStr  && targetStr.length >= startIdx + length) {
+    // 字符串前面部分 + 替换部分 + 尾部部分
+    return targetStr.substring(0, startIdx) + '****' + targetStr.substring(startIdx + length, targetStr.length);
+  }
+  return targetStr;
+}
+
+
 // 根据索引和数组源获取对应索引的元素
 function getObjectAtIndex(idx, datas) {
   if (idx >= datas.length) {
@@ -135,7 +153,7 @@ function showToast(msg, duration, minWidth) {
 
 
 // 页面交互Hud提示
-function showHud(msg, duration) {
+function showHud(msg, image, duration) {
   // 先移除
   if (hudBk) {
     // 移除该标签
@@ -146,18 +164,23 @@ function showHud(msg, duration) {
   duration = isNaN(duration) ? 2 : duration;
 
   // 图标
-  let image = '';
-  if (msg.indexOf('成功') != -1 )  {
-    image = '../../img/success.png';
-  } else if(msg.indexOf('失败') != -1) {
-    image = '../../img/failed.png';
-  } else {
-    image = '../../img/loading.svg';
+  if (!image) {
+    if (msg.indexOf('成功') != -1 )  {
+      image = '../../img/success.png';
+    } else if(msg.indexOf('失败') != -1) {
+      image = '../../img/failed.png';
+    } else {
+      image = '../../img/loading.svg';
+    }
   }
+
+  // 该段完整代码web段可以用
+  // bk.style.cssText = "max-width:60%;width:136px;height:136px;color: rgb(255, 255, 255);text-align: center;border-radius:6px;position: fixed;top: 50%;left: 50%;margin-top: -68px;margin-left: -68px;transform: translate(-50%, -50%);z-index: 999999;background: rgba(0, 0, 0, 0.7);font-size: 16px;";
+
 
   // 创建父div
   let bk = document.createElement('div');
-  bk.style.cssText = "max-width:60%;width:2.02rem;height:2.02rem;color: rgb(255, 255, 255);text-align: center;border-radius: .04rem;position: fixed;top: 50%;left: 50%;margin-top: -1.01rem;margin-left: -1.01rem;transform: translate(-50%, -50%);z-index: 999999;background: rgba(0, 0, 0, 0.7);font-size: 0.25rem;";
+  bk.style.cssText = "width:136px;height:136px;color: rgb(255, 255, 255);text-align: center;border-radius:6px;position: fixed;top: 50%;left: 50%;margin-top: -68px;margin-left: -68px;z-index: 999999;background: rgba(0, 0, 0, 0.7);font-size: 16px;";
   document.body.appendChild(bk);
   hudBk = bk;
 
@@ -165,20 +188,24 @@ function showHud(msg, duration) {
   // 图标
   let img = document.createElement('img');
   img.src = image;
-  img.style.cssText = 'with:0.72rem;height:0.72rem;display:block;margin:0.26rem auto';
+  img.style.cssText = 'width:72px;height:72px;display:block;margin:16px auto 0';
   bk.appendChild(img);
 
   // 提示文本
   let text = document.createElement('div');
-  text.style.cssText = "margin:0.26rem 0";
+  text.style.cssText = "margin:8px 0 24px";
   text.innerHTML = msg;
   bk.appendChild(text);
 
   setTimeout(function() {
-    // 定义消失的时间
+    // 定义淡入的时间
     let d = 0.5;
     bk.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d + 's ease-in';
     bk.style.opacity = '0';
+    if (msg.indexOf('成功') != -1) {
+      // 提示为成功的情况 自己移除
+      hideHud();
+    }
   }, duration * 1000);
 }
 

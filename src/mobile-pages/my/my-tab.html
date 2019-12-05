@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>我的</title>
+    <!-- 引入js -->
+    <script src="../../../public/lib/vue.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="my-tab.css">
+    <!--引入组件-->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="../../../public/components/vue-title-text-cell.js"></script>
+    <script src="../../../public/components/vue-hud.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--<div class="nav">-->
+        <!--<div class="navTitle">我的</div>-->
+        <!--<div class="leftView"></div>-->
+        <!--<el-button class="el-button" type="primary" icon="el-icon-refresh" @click="refreshData">刷新</el-button>-->
+    <!--</div>-->
+    <div>
+        <!-- 列表 -->
+        <ul class="myTable">
+            <!-- cell 自定义组件 -->
+            <title-text-cell @cell-clicked="cellClicked" v-for="(temp, index) in dataArray" :temp="temp" :idx="index" :key="index"></title-text-cell>
+        </ul>
+    </div>
+
+    <hud :image="image" :title="title" :show="show"></hud>
+
+</div>
+
+<!-- 引入当前页面的js -->
+<script src="my-tab.js"></script>
+<!-- 引入工具类方法和接口方法 -->
+<script src="../../common/constants.js"></script>
+<script src="../../utils/utils.js"></script>
+<script src="../../utils/api.js"></script>
+
+</body>
+</html>

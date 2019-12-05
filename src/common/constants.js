@@ -12,3 +12,4 @@ const baseURL_product = 'http://xtwly.kykwl.cn:8091/guard/service/';
  **********************************************************/
 
 const getUserInfoReqURL = 'getUserInfo';
+const getUserInfoForMobileReqURL = 'getUserInfoForMobile';

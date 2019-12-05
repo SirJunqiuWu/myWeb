@@ -12,7 +12,7 @@ Vue.component('title-text-cell', {
       dataDic:{},
     }
   },
-  template:'<li class="myCell" @click="cellClicked(temp, idx)"><div class="left"><img class="icon" :src="temp.image" alt=""><div class="cellTitle">{{temp.title}}</div></div><div><img class="rightArrow" src="../../img/my-info-img/arrow_right.png" alt=""></div></li>',
+  template:'<li class="myCell" @click="cellClicked(temp, idx)"><div class="left"><img class="icon" :src="temp.image" alt=""><div class="cellTitle">{{temp.title}}</div></div><div><img class="rightArrow" :src="temp.rightIcon" alt=""></div></li>',
   methods: {
     // cell点击事件
     cellClicked:function(e, idx) {

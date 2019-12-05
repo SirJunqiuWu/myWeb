@@ -1,0 +1,134 @@
+body,html {
+    padding: 0;
+    margin: 0;
+    background: rgba(244,244,244,1);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 导航 */
+.nav {
+    background: white;
+    height: 64px;
+    position: relative;
+}
+
+.nav .navTitle {
+    height: 64px;
+    line-height: 64px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.nav .leftView {
+    position: absolute;
+    top:0;
+    left: 15px;
+    height: 100%;
+    background: yellow;
+}
+
+.nav .rightView {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 15px;
+    bottom: 0;
+    background: red;
+}
+
+.el-button {
+    position: absolute;
+    width: 1px;
+    height: 4px;
+    top: 12px;
+    right: 15px;
+    bottom: 12px;
+    border-radius: 6px;
+    border: 6px solid #EDEDED;
+    font-size: 2px;
+    padding: 0;
+}
+
+/* 列表 */
+.myTable {
+    border-radius: 6px;
+    background: white;
+    margin: 0;
+}
+
+.myCell {
+    height: 44px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #EDEDED;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.myCell:hover {
+    background: #EDEDED;
+}
+
+
+.myCell .left {
+    height: 44px;
+    display: flex;
+}
+
+.myCell .cellTitle {
+    color: #1A1A1C;
+    height: 44px;
+    line-height: 44px;
+}
+
+.myCell .icon {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 6px 15px 6px 0;
+}
+
+.myCell .rightArrow {
+    width: 20px;
+    height: 20px;
+    margin: 12px 0;
+}
+
+/* 加载框 */
+.hud-bk {
+    position: fixed;
+    display: none;
+    background: black;
+    opacity: 0.6;
+    width: 136px;
+    height: 136px;
+    top: 50%;
+    left: 50%;
+    margin-top: -68px;
+    margin-left: -68px;
+    border-radius: 6px;
+}
+
+.hud-bk-show {
+    display: block;
+}
+
+.hud-bk img {
+    width: 72px;
+    height: 72px;
+    display: block;
+    margin: 16px auto 0;
+}
+
+.hud-bk .text {
+    text-align: center;
+    margin: 8px 0 24px;
+    font-size: 16px;
+    color: white;
+}
