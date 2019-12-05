@@ -25,7 +25,7 @@
         </div>
     </div>
     <ul class="list">
-        <li class="" v-for="(temp, index) in dataArray" :idx="index" :key="index">
+        <li class="" v-for="(temp, index) in dataArray" :idx="index" :key="index" @click="cellClicked(index)">
             <div class="content">
                 <div class="left">{{temp.title}}</div>
                 <div class="right">
@@ -38,6 +38,17 @@
     </ul>
     <div class="logout">
         <div class="btn" @click="logoutBtnPressed">退出登录</div>
+    </div>
+
+    <!-- 提示弹框 -->
+    <div class="alert-modal" v-if="show">
+        <div class="box">
+            <div class="box-top">{{title}}</div>
+            <div class="box-bottom">
+                <div class="left-btn" @click="cancel">取消</div>
+                <div class="right-btn" @click="ok">确定</div>
+            </div>
+        </div>
     </div>
 </div>
 

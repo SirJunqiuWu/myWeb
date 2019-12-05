@@ -1,6 +1,8 @@
 let data = {
   avater:'https://gd2.alicdn.com/imgextra/i2/TB1Zv3_SFXXXXXOaFXXYXGcGpXX_M2.SS2_400x400.jpg',
   dataArray:[],
+  show:false,
+  title:'确定退出登录吗?'
 };
 
 let app = new Vue({
@@ -12,8 +14,20 @@ let app = new Vue({
     }, 500)
   },
   methods:{
+    cellClicked:function(e) {
+      console.log('点击行:', e);
+    },
     logoutBtnPressed:function () {
       console.log('退出登录');
+      data.show = true;
+    },
+    cancel:function () {
+      console.log('取消');
+      data.show = false;
+    },
+    ok:function () {
+      console.log('确定');
+      data.show = false;
     }
   },
 });

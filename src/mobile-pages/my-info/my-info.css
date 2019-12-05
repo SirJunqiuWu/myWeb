@@ -103,3 +103,65 @@ ul {
     line-height: 40px;
     border-radius: 20px;
 }
+
+/* 提示框 */
+.alert-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    opacity: 1;
+    z-index: 666;
+    display: block;
+}
+
+.alert-modal .show {
+    display: block;
+}
+
+.alert-modal .hide {
+    display: none;
+}
+
+.alert-modal .box {
+    position: fixed;
+    background: white;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 110px;
+    margin-left: -150px;
+    /* 调节该值可以控制弹框纵向位置 */
+    margin-top: -55px;
+    background: white;
+    font-size: 16px;
+    color: #00F;
+    text-align: center;
+    border-radius: 6px;
+    z-index: 777;
+}
+
+.box .box-top {
+    height: 60px;
+    line-height: 60px;
+    color: black;
+    font-size: 17px;
+    border-bottom: 1px solid #EDEDED;
+}
+
+.box .box-bottom {
+    height: 50px;
+    display: flex;
+}
+
+.box-bottom .left-btn, .box-bottom .right-btn {
+    width: 50%;
+    height: 50px;
+    line-height: 50px;
+}
+
+.left-btn {
+    border-right: 1px solid #EDEDED;
+}
