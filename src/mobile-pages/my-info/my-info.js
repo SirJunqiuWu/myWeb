@@ -21,13 +21,13 @@ let app = new Vue({
       console.log('退出登录');
       data.show = true;
     },
-    cancel:function () {
+    cancel:function (e) {
       console.log('取消');
-      data.show = false;
+      data.show = e;
     },
-    ok:function () {
+    ok:function (e) {
       console.log('确定');
-      data.show = false;
+      data.show = e;
     }
   },
 });
