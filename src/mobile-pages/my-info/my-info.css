@@ -73,6 +73,7 @@ ul {
 .right .title {
     font-size: 14px;
     color: #888;
+    text-align: right;
 }
 
 .gap {
@@ -126,10 +127,7 @@ ul {
 }
 
 .alert-modal .box {
-    position: fixed;
-    background: white;
-    top: 50%;
-    left: 50%;
+    position: fixed;background: white;top: 50%;left: 50%;
     width: 300px;
     height: 110px;
     margin-left: -150px;
@@ -144,8 +142,7 @@ ul {
 }
 
 .box .box-top {
-    height: 60px;
-    line-height: 60px;
+    height: 60px;line-height: 60px;
     color: black;
     font-size: 17px;
     border-bottom: 1px solid #EDEDED;
@@ -157,8 +154,7 @@ ul {
 }
 
 .box-bottom .left-btn, .box-bottom .right-btn {
-    width: 50%;
-    height: 50px;
+    width: 50%;height: 50px;
     line-height: 50px;
 }
 

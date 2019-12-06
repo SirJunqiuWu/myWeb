@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61638d73-0a32-4bd4-a9f1-3e7d69c40d25" name="默认更改列表" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/mobile-alert-modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mobile-pages/my-info/my-info.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/mobile-pages/my-info/my-info.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mobile-pages/my-info/my-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/mobile-pages/my-info/my-info.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mobile-pages/my-info/my-info.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mobile-pages/my-info/my-info.js" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/.tmp/" />
-    <ignored path="$PROJECT_DIR$/temp/" />
-    <ignored path="$PROJECT_DIR$/tmp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,126 +178,14 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>babelrc</find>
-      <find>eslint</find>
-      <find>sel</find>
-      <find>data.showAlert</find>
-      <find>message</find>
-      <find>uploadDataReq</find>
-      <find>hudBk</find>
-      <find>rem</find>
-      <find>mockMyInfoData</find>
-      <find>0.</find>
-    </findStrings>
-    <dirStrings>
-      <dir>C:\Users\221\Desktop\vue-work\myWeb\node_modules</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/main.js" />
-        <option value="$PROJECT_DIR$/public/pages/my-vue/index.vue" />
-        <option value="$PROJECT_DIR$/public/pages/taskHistory/taskHistory.html" />
-        <option value="$PROJECT_DIR$/public/pages/taskHistory/taskHistory.js" />
-        <option value="$PROJECT_DIR$/public/components/vue-alert-modal.js" />
-        <option value="$PROJECT_DIR$/public/components/vue-hud.js" />
-        <option value="$PROJECT_DIR$/public/components/vue-toast.js" />
-        <option value="$PROJECT_DIR$/public/pages/myInfo/myInfo.js" />
-        <option value="$PROJECT_DIR$/public/pages/myInfo/myInfo.html" />
-        <option value="$PROJECT_DIR$/src/mobile-pages/home/my-tab.html" />
-        <option value="$PROJECT_DIR$/src/mobile-pages/home/home-tab.html" />
-        <option value="$PROJECT_DIR$/src/mobile-pages/home/home-tab.css" />
-        <option value="$PROJECT_DIR$/src/mobile-pages/home/home-tab.js" />
-        <option value="$PROJECT_DIR$/public/components/vue-title-text-cell.js" />
-        <option value="$PROJECT_DIR$/src/mobile-pages/my/my-tab.html" />
-        <option value="$PROJECT_DIR$/public/pages/myInfo/myInfo.css" />
-        <option value="$PROJECT_DIR$/src/mobile-pages/my/my-tab.css" />
-        <option value="$PROJECT_DIR$/src/utils/api.js" />
-        <option value="$PROJECT_DIR$/src/mobile-pages/my/my-tab.js" />
-        <option value="$PROJECT_DIR$/src/common/constants.js" />
-        <option value="$PROJECT_DIR$/src/utils/utils.js" />
-        <option value="$PROJECT_DIR$/src/mobile-pages/my-info/my-info.css" />
-        <option value="$PROJECT_DIR$/src/mobile-pages/my-info/my-info.html" />
-        <option value="$PROJECT_DIR$/src/mobile-pages/my-info/my-info.js" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="width" value="1547" />
-    <option name="height" value="1100" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="myWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myWeb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="myInfo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mobile-pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="mobile-pages" type="462c0819:PsiDirectoryNode" />
-              <item name="my-info" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
-  </component>
+  <component name="ProjectId" id="1UYq6vvLM0AjeTxBTa6QtzZXaoQ" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../dev-work/dev/client/web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -329,6 +218,7 @@
       <workItem from="1574816569337" duration="17763000" />
       <workItem from="1575276875142" duration="617000" />
       <workItem from="1575337930367" duration="53522000" />
+<<<<<<< HEAD
       <workItem from="1575512016029" duration="24797000" />
     </task>
     <servers />
@@ -565,6 +455,28 @@
         </state>
       </provider>
     </entry>
+      <workItem from="1575512016029" duration="24198000" />
+      <workItem from="1575543707193" duration="1348000" />
+      <workItem from="1575546169497" duration="284000" />
+      <workItem from="1575546518816" duration="2431000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="masterDetails">
     <states>

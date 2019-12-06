@@ -14,6 +14,8 @@
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <link rel="stylesheet" href="my-info.css">
+    <!-- 引入自定义组件 -->
+    <script src="../../components/mobile-alert-modal.js"></script>
 </head>
 <body>
 <div id="app">
@@ -41,15 +43,17 @@
     </div>
 
     <!-- 提示弹框 -->
-    <div class="alert-modal" v-if="show">
-        <div class="box">
-            <div class="box-top">{{title}}</div>
-            <div class="box-bottom">
-                <div class="left-btn" @click="cancel">取消</div>
-                <div class="right-btn" @click="ok">确定</div>
-            </div>
-        </div>
-    </div>
+<!--    <div class="alert-modal" v-if="show">-->
+<!--        <div class="box">-->
+<!--            <div class="box-top">{{title}}</div>-->
+<!--            <div class="box-bottom">-->
+<!--                <div class="left-btn" @click="cancel">取消</div>-->
+<!--                <div class="right-btn" @click="ok">确定</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <mobile-alert-modal @cancel-clicked="cancel" @ok-clicked="ok" :show="show" :title="title"></mobile-alert-modal>
 </div>
 
 <!-- 引入本界面的js -->
