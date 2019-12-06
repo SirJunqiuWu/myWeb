@@ -10,6 +10,10 @@ const baseURL_product = 'http://xtwly.kykwl.cn:8091/guard/service/';
 /*********************************************************
  * 个人中心模块接口
  **********************************************************/
-
 const getUserInfoReqURL = 'getUserInfo';
 const getUserInfoForMobileReqURL = 'getUserInfoForMobile';
+
+/*********************************************************
+ * 首页Tab模块接口
+ **********************************************************/
+const getHomeDataReqURL = 'getHomeData';

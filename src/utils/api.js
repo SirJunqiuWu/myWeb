@@ -48,6 +48,11 @@ function getDataReq(options = {}) {
       return;
     }
 
+    if (url == getHomeDataReqURL) {
+      console.log('首页数据');
+      return;
+    }
+
     $.ajax({
         async: reqConfig.async,
         url: reqURL,
@@ -125,4 +130,14 @@ function mockMyInfoData(type) {
     }
     let result = {code:0, message:'success', data:{data:datas}};
     return result;
+}
+
+function mockHomeTabData() {
+  let datas = []
+  for (let i = 0; i < 10; i += 1) {
+    let temp = {};
+    datas.push(temp);
+  }
+  let result = {code:0, message:'success', data:{data:datas}};
+  return result;
 }

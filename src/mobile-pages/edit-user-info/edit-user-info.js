@@ -1,6 +1,7 @@
 let data = {
   placeholder:'',
   text:'',
+  idx:'0',
 };
 
 let app = new Vue({
@@ -27,10 +28,12 @@ let app = new Vue({
     // 确定按钮点击
     ok:function () {
       let text = $('#myInput').val();
-      if (isNullStr(text) === '') {
+      if (isNullStr(text).length === 0) {
         showToast(data.placeholder);
         return;
       }
+      // 返回上一级界面时 上一级界面会重新加载 获取最新数据
+      window.history.back(-1);
     },
   },
 });
@@ -44,7 +47,30 @@ function inputVlueChanged() {
 
 function uploadDataReq() {
   let text = getUrlTargetKeyValueWithKey('text');
-  let placeholder = getUrlTargetKeyValueWithKey('placeholder');
+  let idx = getUrlTargetKeyValueWithKey('idx');
+  console.log('idx:', idx);
   data.text = text;
-  data.placeholder = placeholder;
+  data.idx = idx;
+  data.placeholder = getPlaceholderWithIdx(idx);
 }
+
+function getPlaceholderWithIdx(e) {
+  let text = '';
+  switch (e) {
+    case '0':
+      text = '请填写昵称';
+      break;
+    case '2':
+      text = '请填写手机号';
+      break;
+    case '3':
+      text = '请填写支付宝号';
+      break;
+    default:
+      // 默认
+      text = '请填写信息';
+      break;
+  };
+  console.log('text:', text);
+  return text;
+};

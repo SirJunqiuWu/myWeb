@@ -22,7 +22,7 @@
     <div class="user-avater">
         <div class="left">头像</div>
         <div class="right">
-            <img class="avater" :src="avater" alt="" />
+            <img class="avater" id="myAvater" :src="avater" alt="" />
             <img class="right-arrow" src="../../img/arrow_right.png" alt="" />
         </div>
     </div>
@@ -52,7 +52,7 @@
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
-
+     <!-- 提示框 -->
     <mobile-alert-modal @cancel-clicked="cancel" @ok-clicked="ok" :show="show" :title="title"></mobile-alert-modal>
 </div>
 

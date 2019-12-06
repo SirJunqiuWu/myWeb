@@ -27,12 +27,11 @@ let app = new Vue({
       if (e == 4) {
         data.dataArray[e].des = '0M';
         showHud('清除缓存成功');
-      } else if (e === data.dataArray.length - 1) {
+      } else if (e == data.dataArray.length - 1) {
           showToast('已经是最新版本');
       } else {
         let temp = data.dataArray[e];
-        let placeholder = getPlaceholderWithIdx(e);
-        window.location.href = '../edit-user-info/edit-user-info.html?text=' + temp.des + '&placeholder=' + placeholder;
+        window.location.href = '../edit-user-info/edit-user-info.html?text=' + temp.des + '&idx=' + e;
       };
     },
     logoutBtnPressed:function () {
@@ -51,26 +50,6 @@ let app = new Vue({
   },
 });
 
-function getPlaceholderWithIdx(e) {
-  let text = '';
-  switch (e) {
-    case 0:
-      text = '请填写昵称';
-      break;
-    case 2:
-      text = '请填写手机号';
-      break;
-    case 3:
-      text = '请填写支付宝号';
-      break;
-    default:
-      // 默认
-      text = '请填写信息';
-      break;
-  };
-  console.log('text:', text);
-  return text;
-};
 
 function uploadDataReq() {
   showHud('加载中');
