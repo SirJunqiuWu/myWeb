@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <script src="../../../public/lib/vue.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" href="edit-user-info.css">
+    <script src="../../components/mobile-alert-modal.js"></script>
+    <title>编辑信息</title>
+</head>
+<body>
+<div id="app">
+    <div class="input-box">
+        <input required="required" class="my-input" id="myInput" v-model="text" type="text" maxlength="30" :placeholder="placeholder" @focus="userFocus()" @blur="userBlur()" autocomplete="off" oninput="inputVlueChanged()" />
+        <a href="javascript:;" class="clear-input">
+            <img @click="clearInput" src="../../img/clear.png" class="clear-input-img" alt="" />
+        </a>
+    </div>
+    <div class="ok-btn" @click="ok">完成</div>
+</div>
+<script src="edit-user-info.js"></script>
+<script src="../../utils/utils.js"></script>
+<script src="../../common/constants.js"></script>
+<script src="../../utils/api.js"></script>
+</body>
+</html>

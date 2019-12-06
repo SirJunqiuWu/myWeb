@@ -3,15 +3,15 @@
  * 作者：吴俊秋
  * 该文件是项目的工具类文件，常见方法，方便快速获取想要的结果 比如日期、时间戳、url参数的获取
  * 也可以做安全处理：数组安全取值 字符串安全判断  正则匹配等
-*********************************************************************************/
+ *********************************************************************************/
   // 当前显示的hubBk，只能显示一个,showHud时先移除hud
 let hudBk = null;
 
 // 获取页面跳转时链接传值的信息字符串
 function getUrlAllParmInfo() {
-    let result = window.location.search.substr(1);
-    result = decodeURI(result);
-    return result;
+  let result = window.location.search.substr(1);
+  result = decodeURI(result);
+  return result;
 }
 
 function getParamWithObj(obj) {
@@ -32,9 +32,9 @@ function getParamWithObj(obj) {
       let temp = result[i];
       temp = temp.split('=');
       if (temp && temp.length >= 2) {
-          let key= temp[0];
-          let value = temp[1];
-          paramDic[key] = value;
+        let key= temp[0];
+        let value = temp[1];
+        paramDic[key] = value;
       }
     }
   }
@@ -44,15 +44,6 @@ function getParamWithObj(obj) {
 
 // 根据指定key和url后拼接的字符串信息获取对应key的值
 function getTargetParamWithKeyAndObj(key, obj) {
-  let paramDic = getParamWithObj(obj);
-  let result = paramDic[key];
-  return result;
-}
-
-
-// 获取跳转连接中指定key对应的value
-function getUrlTargetKeyValueWithKey(key) {
-  let obj = getUrlAllParmInfo();
   let paramDic = getParamWithObj(obj);
   let result = paramDic[key];
   return result;
@@ -103,7 +94,7 @@ function isNullStr(str) {
   } else {
     result = str;
   }
-    return result;
+  return result;
 }
 
 /**
@@ -139,12 +130,12 @@ function showToast(msg, duration, minWidth) {
   duration = isNaN(duration) ? 2 : duration;
 
   // toast最小宽度 默认0.6
-  minWidth = isNaN(minWidth) ? 60 : minWidth;
+  minWidth = isNaN(minWidth) ? 0.6 : minWidth;
 
   // 创建div
   let m = document.createElement('div');
   m.innerHTML = msg;
-  m.style.cssText = "max-width:60%;padding:0 12px;height:40px;line-height:40px;color: rgb(255, 255, 255);text-align: center;border-radius: 4px;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 999999;background: rgba(0, 0, 0,.7);font-size: 16px;" + "min-width:" + minWidth + "px";
+  m.style.cssText = "max-width:60%;padding:0 .14rem;height: .4rem;color: rgb(255, 255, 255);line-height: .4rem;text-align: center;border-radius: .04rem;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 999999;background: rgba(0, 0, 0,.7);font-size: .16rem;" + "min-width:" + minWidth + "rem";
 
   document.body.appendChild(m);
 
@@ -189,7 +180,7 @@ function showHud(msg, image, duration) {
 
   // 创建父div
   let bk = document.createElement('div');
-  bk.style.cssText = "width:120px;height:120px;color: rgb(255, 255, 255);text-align: center;border-radius:6px;position: fixed;top: 50%;left: 50%;margin-top: -60px;margin-left: -60px;z-index: 999999;background: rgba(0, 0, 0, 0.7);font-size: 16px;";
+  bk.style.cssText = "width:136px;height:136px;color: rgb(255, 255, 255);text-align: center;border-radius:6px;position: fixed;top: 50%;left: 50%;margin-top: -68px;margin-left: -68px;z-index: 999999;background: rgba(0, 0, 0, 0.7);font-size: 16px;";
   document.body.appendChild(bk);
   hudBk = bk;
 
@@ -202,7 +193,7 @@ function showHud(msg, image, duration) {
 
   // 提示文本
   let text = document.createElement('div');
-  text.style.cssText = "margin:25px 0 25px";
+  text.style.cssText = "margin:8px 0 24px";
   text.innerHTML = msg;
   bk.appendChild(text);
 

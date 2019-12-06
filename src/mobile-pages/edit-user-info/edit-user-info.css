@@ -1,0 +1,60 @@
+body,html {
+    padding: 0;
+    margin: 0;
+    background: rgba(244,244,244,1);
+}
+
+.input-box {
+    position: relative;
+}
+
+.my-input {
+    margin-top: 10px;
+    border-radius: 0;
+    /* 用padding撑起高度 height和字体一样高时光标上下居中 */
+    padding: 10px 12px;
+    color: #1A1A1C;
+    font-size: 15px;
+    height: 15px;
+    width:calc(100% - 24px);
+    /*lighting-color: white;*/
+    /* 更改光标颜色 */
+    caret-color: #1A1A1C;
+    /* 掉input点击后边框颜色 */
+    outline: none;
+
+    /* 去掉默认点击触发文本框时的灰色背景色*/
+    tap-highlight-color:rgba(0,0,0,0);
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+
+    /* 去掉边框灰色样式(顶部的灰色边框) */
+    border-style:none none none none;
+}
+
+.clear-input {
+    display: none;
+    position: absolute;
+    top: 18px;
+    right: 12px;
+    bottom: 12px;
+}
+
+/*valid 选择器在表单元素的值需要根据指定条件验证时设置指定样式（这里要记得在input里面加上required="required"，表示必须）*/
+/* 该写法的意思是:当文本框获取到焦点并且有值时出现清除图标 反之则消失 */
+.my-input:valid + .clear-input {display: block;}
+
+clear-input-img {
+    width: 8px;
+    height: 8px;
+}
+
+.ok-btn {
+    margin: 100px 15px 0;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    background: #F00;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+}
